@@ -1,10 +1,16 @@
 @media (max-width: 614px) {
+
     * {
     box-sizing: border-box;
 }
 
 .body {
     font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+.content {
+    display: flex;
 }
 
 .header {
@@ -34,16 +40,65 @@
     bottom: 0;
     left: 0;
 }
-.footer input {
+input::placeholder {
     font-style: italic;
     font-weight: 400;
     font-size: 18px;
     color: #000000;
 }
 
+.footer input {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    border: none;
+}
+
 .messages {
-    height: 2500px;
+    height: 500px;
+    width: 600px;
+    margin-top: 80px;
     background-color: #e5e5e5;
+}
+
+.options {
+    width: 259px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #000000;
+    background-color: #ffffff;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.options div {
+    font-weight: 700;
+    width: 259px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 
