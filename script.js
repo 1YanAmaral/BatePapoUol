@@ -1,6 +1,35 @@
 let msgContent;
+let username;
 
-getMessages();
+askUsername();
+
+function askUsername(){
+    username = {
+        name: prompt("Qual o seu lindo nome?")
+    };
+}
+
+sendUsername();
+
+function sendUsername(){
+    let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", username);
+    promise.catch(catchError);
+    promise.then(getMessages);
+}
+
+function catchError(error) {
+    if (error.response.status === 400) {
+        alert("Nome de usuário indisponível!");
+        askUsername();
+    }
+}
+
+function sustainConnection() {
+    let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", username);
+    promise.then(getMessages);
+}
+
+setInterval(sustainConnection, 5000);
 
 function getMessages(){
     let promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
@@ -13,9 +42,7 @@ function storeMessages(object) {
 }
 
 function printMessages() {
-    //console.log(msgContent[0].type);
     let messageBoard = document.querySelector(".messages");
-    //messageBoard.scrollIntoView();   
     messageBoard.innerHTML = "";
      for (let i = 0; i < msgContent.length ; i++) {
         if (msgContent[i].type === "status") {
@@ -34,8 +61,15 @@ function printMessages() {
     messageBoard.lastElementChild.scrollIntoView();
 }
 
-
-
 setInterval(getMessages, 3000);
+let objMessage = {
+	from: username,
+	to: "Todos",
+	text: input.value,
+	type: "message" 
+}
 
-//let postPromise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", )
+function sendMessage() {
+    let promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", objMessage);
+    promise.then(getMessages);
+}
