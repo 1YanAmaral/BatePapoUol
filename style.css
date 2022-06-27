@@ -14,6 +14,57 @@
     display: flex;
 }
 
+.loginScreen {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.loginScreen img {
+    margin: 72px auto;
+}
+
+.loginScreen input {
+    width: 261px;
+    height: 54px;
+    margin: 15px auto;
+    background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+   
+}
+
+.loginScreen input::placeholder {
+    color: #AEAEAE;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+
+.loginScreen button {
+    width: 109px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #696969;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    
+}
+
+
 .header {
     width: 100%;
     height: 80px;
@@ -62,14 +113,14 @@ input::placeholder {
     margin-top: 110px;
     margin-bottom: 70px;
     background-color: #e5e5e5;
+    
 }
+
 
 .message {
     width: 100%;
     height: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: block;
     align-items: center;
     justify-content: left;
     border-radius: 2px;
@@ -79,12 +130,17 @@ input::placeholder {
     background-color: #ffffff;
     padding: 10px 10px;
     margin: 4px 0;
-    
+    overflow-y: auto;
 }
 
-.strong {
+.from {
     font-weight: 700;
-    padding: 0 5px;
+    padding-left:5px;
+}
+
+.to {
+    font-weight: 700;
+    padding-right: 3px;
 }
 
 .time {
@@ -126,13 +182,26 @@ input::placeholder {
     padding: 25px;
 }
 
-.li ion-icon {
-    margin: 10px;
+li {
+    width: 100%;
+    height: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    margin: 5px 15px;
+}
+
+li ion-icon {
+    font-size: 25px;
+    margin-right: 5px;
 }
 
 .hidden {
     display: none;
 }
+
 
 .background {
     width: 100%;
@@ -144,5 +213,32 @@ input::placeholder {
     z-index: 1;
 }
 
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-bottom: 16px solid blue;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.loginIn {
+    margin: 25px auto;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
 
 }
