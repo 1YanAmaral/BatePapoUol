@@ -54,7 +54,7 @@ setInterval(getMessages, 3000);
 setInterval(sustainConnection, 5000);
 
 function sendMessage() {
-    const msg = document.querySelector(".msg").value;
+    let msg = document.querySelector(".msg").value;
     const objMessage = {
         from: username.name,
         to: "Todos",
@@ -65,7 +65,7 @@ function sendMessage() {
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objMessage);
     promise.then(getMessages);
     promise.catch(loadPage);
-    msg = "";
+    document.querySelector(".msg").value = " ";
 }
 
 
