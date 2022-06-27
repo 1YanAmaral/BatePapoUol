@@ -15,7 +15,7 @@ function sendUsername(){
 function catchError(error) {
     if (error.response.status === 400) {
         alert("Nome de usuário indisponível!");
-        
+        hideLoader();
     }
 }
 
@@ -51,7 +51,7 @@ function printMessages() {
 }
 
 setInterval(getMessages, 3000);
-setInterval(sustainConnection, 3000);
+setInterval(sustainConnection, 5000);
 
 function sendMessage() {
     const msg = document.querySelector(".msg").value;
@@ -65,6 +65,7 @@ function sendMessage() {
     let promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objMessage);
     promise.then(getMessages);
     promise.catch(loadPage);
+    msg = "";
 }
 
 
@@ -120,4 +121,11 @@ function showLoader (){
     document.querySelector(".loginIn").classList.remove("hidden");
     document.querySelector(".userName").classList.add("hidden");
     document.querySelector("button").classList.add("hidden");
+}
+
+function hideLoader() {
+    document.querySelector(".loader").classList.add("hidden");
+    document.querySelector(".loginIn").classList.add("hidden");
+    document.querySelector(".userName").classList.remove("hidden");
+    document.querySelector("button").classList.remove("hidden");
 }
